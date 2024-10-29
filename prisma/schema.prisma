@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Note that some adapters may set a maximum length for the String type by default, please ensure your strings are long
+// enough when changing adapters.
+// See https://www.prisma.io/docs/orm/reference/prisma-schema-reference#string for more information
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id            String    @id
+  shop          String
+  state         String
+  isOnline      Boolean   @default(false)
+  scope         String?
+  expires       DateTime?
+  accessToken   String
+  userId        BigInt?
+  firstName     String?
+  lastName      String?
+  email         String?
+  accountOwner  Boolean   @default(false)
+  locale        String?
+  collaborator  Boolean?  @default(false)
+  emailVerified Boolean?  @default(false)
+}
+
+
+
+model Order {
+  id              BigInt   @id @default(autoincrement())
+  order_id        BigInt
+  order_name      String
+  note            String?
+  customer_id     BigInt
+  customer_name   String
+  customer_email  String
+  item_count      String
+  total           String
+  payment_status  String
+  delivery_status String
+  delivery_method String
+  fullfilement    String
+  order_date      DateTime
+  patientId       BigInt?
+}
+
+model Doctor {
+  id         BigInt     @id @default(autoincrement())
+  firstName  String
+  lastName   String
+  email      String     @unique
+  phone      String?
+  specialty  String?
+}
+
+model Patient {
+  id         BigInt     @id @default(autoincrement())
+  firstName  String
+  lastName   String
+  email      String     @unique
+  phone      String?
+  doctorId   BigInt?
+}
+
+model OrderItem {
+  id          BigInt   @id @default(autoincrement())
+  orderId     BigInt
+  productName String
+  quantity    Int
+  price       Float
+}
