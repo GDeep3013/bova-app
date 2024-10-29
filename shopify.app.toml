@@ -3,7 +3,7 @@
 client_id = "7ded444b052fdd3996eadd44b51736f6"
 name = "Bova 2"
 handle = "bove-2"
-application_url = "https://louise-lid-vegas-ec.trycloudflare.com"
+application_url = "https://committed-breaking-cafe-logged.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_customers,read_orders,read_products,write_customers,write_orders,
 
 [auth]
 redirect_urls = [
-  "https://louise-lid-vegas-ec.trycloudflare.com/auth/callback",
-  "https://louise-lid-vegas-ec.trycloudflare.com/auth/shopify/callback",
-  "https://louise-lid-vegas-ec.trycloudflare.com/api/auth/callback"
+  "https://committed-breaking-cafe-logged.trycloudflare.com/auth/callback",
+  "https://committed-breaking-cafe-logged.trycloudflare.com/auth/shopify/callback",
+  "https://committed-breaking-cafe-logged.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

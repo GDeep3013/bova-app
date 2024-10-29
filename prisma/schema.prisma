@@ -29,6 +29,8 @@ model Session {
   locale        String?
   collaborator  Boolean?  @default(false)
   emailVerified Boolean?  @default(false)
+    @@map("session") // Map to the sessions table
+
 }
 
 
@@ -49,6 +51,8 @@ model Order {
   fullfilement    String
   order_date      DateTime
   patientId       BigInt?
+    @@map("orders") // Map to the orders table
+
 }
 
 model Doctor {
@@ -58,6 +62,8 @@ model Doctor {
   email      String     @unique
   phone      String?
   specialty  String?
+    @@map("doctors") // Map to the doctors table
+
 }
 
 model Patient {
@@ -67,6 +73,8 @@ model Patient {
   email      String     @unique
   phone      String?
   doctorId   BigInt?
+    @@map("patients") // Map to the patients table
+
 }
 
 model OrderItem {
@@ -75,4 +83,6 @@ model OrderItem {
   productName String
   quantity    Int
   price       Float
+    @@map("order_items") // Map to the order_items table
+
 }
